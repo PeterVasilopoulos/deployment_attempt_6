@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Band</title>
+
+    <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
+</head>
+<body>
+    
+    <!-- Navbar -->
+    <div id="create-navbar">
+        <!-- Page Title -->
+        <h1 id="create-title">Rock on, {{user.first_name}} {{user.last_name}}!</h1>
+        <!-- Nav Buttons -->
+        <div id="create-buttons">
+            <!-- Back to recipes -->
+            <a href="/bands/my_bands">My Bands</a>
+            <a href="/bands">Dashboard</a>
+            <a href="/logout">Logout</a>
+        </div>
+    </div>
+
+    <!-- Band Form -->
+    <div id="band-form">
+        <!-- Flashed Messages -->
+        {% for message in get_flashed_messages() %}
+            <p class="error">{{message}}</p>
+        {% endfor %}
+
+        <!-- Band Title / Create A Band -->
+        <h2>Edit {{band.name}}</h2>
+        
+        <!-- Form -->
+        <form action="/bands/update" method="POST">
+            <!-- Band Name -->
+            <div class="band-input">
+                <label>Band Name:</label><br>
+                <input type="text" name="name" value="{{band.name}}">
+            </div>
+            <!-- Band Genre -->
+            <div class="band-input">
+                <label>Music Genre:</label><br>
+                <input type="text" name="genre" value="{{band.genre}}">
+            </div>
+            <!-- Band Home City -->
+            <div class="band-input">
+                <label>Home City:</label><br>
+                <input type="text" name="city" value="{{band.city}}">
+            </div>
+
+            <!-- Hidden Input for User ID -->
+            <input type="hidden" name="user_id" value="{{session['uid']}}">
+
+            <!-- Hidden Input for Band ID -->
+            <input type="hidden" name="band_id" value="{{band.id}}">
+
+            <!-- Submit Button -->
+            <button>Update</button>
+        </form>
+    </div>
+
+</body>
+</html>

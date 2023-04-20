@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Band</title>
+
+    <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
+</head>
+<body>
+    
+    <!-- Navbar -->
+    <div id="create-navbar">
+        <!-- Page Title -->
+        <h1 id="create-title">Rock on, {{user.first_name}} {{user.last_name}}!</h1>
+        <!-- Nav Buttons -->
+        <div id="create-buttons">
+            <!-- Back to recipes -->
+            <a href="/bands">Dashboard</a>
+            <a href="/logout">Logout</a>
+        </div>
+    </div>
+
+
+    <div id="bands-info">
+        <!-- My Bands List -->
+        <div class="my-bands">
+            <h2>My Bands:</h2>
+            <ul id="my-bands-list">
+                {% for band in my_bands %}
+                    <li class="band-list">
+                        {{band.name}}
+                        <a href="/bands/edit/{{band.id}}">Edit</a>
+                        <a href="/bands/delete/{{band.id}}">Delete</a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <!-- Joined Bands -->
+        <div class="my-bands">
+            <h2>Joined Bands:</h2>
+            <ul id="my-bands-list">
+                {% for band in joined_bands.bands %}
+                    <li class="band-list">
+                        {{band.name}}
+                        <a href="/bands/quit/{{band.id}}">Quit</a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+
+</body>
+</html>

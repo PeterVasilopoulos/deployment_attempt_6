@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bands</title>
+
+    <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <div id="create-navbar">
+        <!-- Page Title -->
+        <h1 id="create-title">Rock on, {{user.first_name}} {{user.last_name}}!</h1>
+        <!-- Nav Buttons -->
+        <div id="create-buttons">
+            <!-- Back to recipes -->
+            <a href="/bands/my_bands">My Bands</a>
+            <a href="/bands/new">New Band</a>
+            <a href="/logout">Logout</a>
+        </div>
+    </div>
+    
+    <!-- Welcome -->
+    <h2 class="recipes-title">All Bands</h2>
+    
+    <div id="recipes-content">
+        <table id="all-recipes">
+            <thead>
+                <tr class="table-head">
+                    <td>Band Name</td>
+                    <td>Founding Member</td>
+                    <td>Genre</td>
+                    <td>Actions</td>
+                </tr>
+            </thead>
+            <!-- JINJA HERE -->
+
+            {% for band in bands %}
+                <tr class="table-body">
+                    <td>{{band.name}}</td>
+                    <td>{{band.user.first_name}} {{band.user.last_name}}</td>
+                    <td>{{band.genre}}</td>
+                    <td>
+                        
+                        {% set in_band = [] %}
+
+                        {% for member in band.members %}
+                            {% if member['id'] == session['uid'] %}
+                                {% set temp = in_band.append(True) %}
+                            {% endif %}
+                        {% endfor %}
+
+                        {% if not in_band[0] %}
+                            <a href="/bands/join/{{band.id}}">Join</a>
+                        {% else %}
+                            <a href="/bands/quit/{{band.id}}">Quit</a>
+                        {% endif %}
+
+                        {% if band.user_id == session['uid'] %}
+                            <a href="/bands/edit/{{band.id}}">Edit</a>
+                            <a href="/bands/delete/{{band.id}}">Delete</a>
+                        {% endif %}
+                    </td>
+                </tr>
+            {% endfor %}
+
+</body>
+</html>

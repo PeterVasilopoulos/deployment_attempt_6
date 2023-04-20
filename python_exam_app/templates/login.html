@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+
+    <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
+</head>
+<body>
+    
+    <!-- Page Title -->
+    <h1 id="title">Band Together</h1>
+
+    <!-- Flashed Messages -->
+    {% for message in get_flashed_messages() %}
+        <p class="error">{{message}}</p>
+    {% endfor %}
+
+    <!-- Main Content -->
+    <div id="login-content">
+        <!-- Register -->
+        <div id="register">
+            <h2>Register</h2>
+            <form action="/registration_verify" method="POST" class="login-form">
+                <!-- First Name -->
+                <div class="input">
+                    <label>First Name:</label>
+                    <input type="text" name="first_name">
+                </div>
+                <!-- Last Name -->
+                <div class="input">
+                    <label>Last Name:</label>
+                    <input type="text" name="last_name">
+                </div>
+                <!-- First Name -->
+                <div class="input">
+                    <label>Email:</label>
+                    <input type="text" name="email">
+                </div>
+                <!-- Password -->
+                <div class="input">
+                    <label>Password:</label>
+                    <input type="password" name="password">
+                </div>
+                <!-- Confirm Password -->
+                <div class="input">
+                    <label>Confirm Password:</label>
+                    <input type="password" name="confirm_password">
+                </div>
+                <!-- Submit -->
+                <button>Submit</button>
+            </form>
+        </div>
+
+        <!-- Login -->
+        <div id="login">
+            <h2>Login</h2>
+            <form action="/login_verify" method="POST" class="login-form">
+                <!-- Email -->
+                <div class="input">
+                    <label>Email:</label>
+                    <input type="text" name="email">
+                </div>
+                <!-- Password -->
+                <div class="input">
+                    <label>Password:</label>
+                    <input type="password" name="password">
+                </div>
+                <!-- Submit -->
+                <button>Submit</button>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>

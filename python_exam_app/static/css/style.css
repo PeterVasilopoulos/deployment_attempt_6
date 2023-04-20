@@ -1,0 +1,193 @@
+/* Font Import */
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+/* CSS Reset */
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+/* Login Page */
+#title {
+    color: rebeccapurple;
+    margin: 20px;
+}
+
+.error {
+    color: red;
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+#login-content {
+    display: flex;
+    justify-content: center;
+    gap: 100px;
+}
+
+#login-content h2 {
+    margin-bottom: 30px;
+}
+
+.login-form div {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+/* All Recipes Page */
+.recipes-title {
+    margin: 30px;
+}
+
+#recipes-content {
+    margin: 30px;
+}
+
+#navbar {
+    display: flex;
+    justify-content: space-between;
+}
+
+.text-above-table {
+    font-size: 20px;
+}
+
+#all-recipes {
+    width: 100%;
+}
+
+table {
+    border: 2px solid black;
+}
+
+.table-head {
+    font-weight: bold;
+    background-color: rgb(83, 83, 83);
+    color: white;
+}
+
+thead td {
+    padding: 2px 5px;
+}
+
+.table-body {
+    background-color: rgb(187, 187, 187);
+}
+
+/* Create New Recipe Page */
+#create-navbar {
+    display: flex;
+    justify-content: space-between;
+    margin: 30px;
+    align-items: center;
+}
+
+#create-buttons {
+    display: flex;
+    gap: 20px;
+}
+
+#recipe-form {
+    display: flex;
+    gap: 50px;
+    justify-content: center;
+}
+
+#recipe-left {
+    width: 400px;
+}
+
+.recipe-input {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.recipe-input label {
+    flex: 1;
+}
+
+.ri {
+    flex: 3;
+}
+
+#recipe-right div {
+    margin-bottom: 50px;
+}
+
+#under-radio {
+    display: flex;
+    gap: 20px;
+}
+
+#create-recipe-submit {
+    display: flex;
+    justify-content: center;
+}
+
+/* View Recipe Page */
+#vr-block {
+    width: 1000px;
+    margin: 0 auto;
+}
+
+#vr-content {
+    border: solid black 2px;
+    padding: 20px;
+}
+
+#vr-top {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px;
+    align-items: flex-end;
+}
+
+.vr-item {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    margin-bottom: 20px;
+}
+
+.vr-item:last-of-type {
+    margin-bottom: 0;
+}
+
+/* New Band Page */
+#band-form {
+    margin: 0 auto;
+    width: 500px;
+}
+
+.band-input {
+    margin-bottom: 20px;
+}
+
+/* My Bands Page */
+#bands-info {
+    display: flex;
+    gap: 50px;
+    justify-content: center;
+}
+
+.my-bands {
+    width: 300px;
+}
+
+.my-bands h2 {
+    margin-bottom: 20px;
+}
+
+#my-bands-list {
+    list-style: none;
+}
+
+.band-list a {
+    margin-left: 15px;
+}
